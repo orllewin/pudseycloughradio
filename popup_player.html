@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang='en'>
+ <head>
+	<title>Pudsey Clough Radio - Player</title>
+	<meta charset='utf-8'>
+	<style>
+		body {
+			background-color: #FEF9F1;
+			margin:6px;
+			padding:0px;
+			font-size: 14px;
+			font-weight: 400;
+			font-style: normal;
+			font-family: -apple-system, sans-serif;
+			overflow-wrap: break-word;
+		}
+		
+		#artist_link_button{
+			overflow-wrap: anywhere;
+		}
+		
+		.external_link{
+			vertical-align: middle;
+			width: 14px;
+			height: 14px;
+			padding-left: 4px;
+		}
+	
+	p{
+		text-transform: lowercase;
+		padding: 6px;
+	}
+	
+	small{
+		font-size: x-small;
+	}
+	
+	a:link {
+		color: black;
+	}
+	
+	/* visited link */
+	a:visited {
+		color: black;
+	}
+	
+	/* mouse over link */
+	a:hover {
+		color: black;
+	}
+	
+	/* selected link */
+	a:active {
+		color: black;
+	}
+	
+	#logo_container{
+		display: flex;
+		margin-top: 24px;
+		align-items: center;
+		justify-content: center;
+		width: 100%;
+	}
+	#radio_file_image{
+		width: 300px;
+		height: auto;
+	}
+a.buttonstyle:hover{
+		background-color: #c5c5cf;
+	}
+	
+	a.buttonstyle:link{
+		background-color: #e4e3e8;
+		color: black;
+		padding: 2.2px 6px;
+		font-size: 15px;
+		text-align: center;
+		text-decoration: none;
+		display: inline-block;
+		border-radius: 4px;
+		border-style: solid;
+		border-width: 1px;
+		border-color: #7c7c8c;
+		font-family: -apple-system;
+		font-size: 13.3333px;
+		font-style: normal;
+		font-weight: 400;
+		text-transform: none
+	}
+
+	</style>
+	<script type="text/javascript" src="script.js"></script>
+ </head>
+ <body onload="startListening();">
+	 <audio controls autoplay src="https://orllewin.radioca.st/rad.ogg"></audio>
+ 	<div id="track_details">
+	 <img id="radio_file_image">
+	 <div id="artist_attribution" style="display: none;">
+			<a id="artist_link_button" class="buttonstyle" href="" target="_blank"></a><img class="external_link" src="./images/external_link.svg" alt="external link"/>
+		</div>
+	 <p><span id="radio_filename"></span></p>
+		<p><i><span id="radio_file_info"></span></i></p>
+ </div>
+	 <p><small>If you have problems with the in-page player the stream url is <a href="https://orllewin.radioca.st/rad.ogg" target="_blank">orllewin.radioca.st/rad.ogg</a></small></p>
+ </body>
+</html>
