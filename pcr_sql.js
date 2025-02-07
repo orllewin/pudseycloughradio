@@ -18,6 +18,33 @@ function logEntireDatabase(){
   );
 }
 
+function registerKeys(){
+  document.addEventListener("keypress", function onPress(event) {
+    var header = document.getElementById("pcr_header"); 
+    var article = document.getElementById("pcr_article"); 
+    var footer = document.getElementById("pcr_footer"); 
+
+    if (event.key === "t") {
+		if(header.className === 'uiVisible' && article.className === 'uiVisible' && footer.className === 'uiVisible'){
+			article.classList.remove('uiVisible');
+			article.classList.add('uiGone');
+			footer.classList.remove('uiVisible');
+			footer.classList.add('uiGone');
+		}else if(header.className === 'uiVisible'){
+			header.classList.remove('uiVisible');
+			header.classList.add('uiGone');
+		}else{
+			header.classList.remove('uiGone');
+    	    header.classList.add('uiVisible');
+    	    article.classList.remove('uiGone');
+    	    article.classList.add('uiVisible');
+    	    footer.classList.remove('uiGone');
+    	    footer.classList.add('uiVisible');
+		}
+	}
+  });
+}
+
 
 function startListening () {
   	updateCurrentTrackData()
@@ -47,15 +74,17 @@ async function  updateCurrentTrackData(){
     		rowMode: 'object',
     		callback: function(row){
     		  //logger("row ",++this.counter,"=",JSON.stringify(row));
-              sqlWrapper.append(document.createTextNode(row.filename));
-              sqlWrapper.appendChild(document.createElement("br"));
-              sqlWrapper.append(document.createTextNode(row.description));
-              sqlWrapper.appendChild(document.createElement("br"));
-              const img = document.createElement('img');
-              img.src = "images_tracks/" + row.image;
-              sqlWrapper.appendChild(document.createElement("br"));
-              sqlWrapper.appendChild(img);
-              sqlWrapper.appendChild(document.createElement("br"));
+    		  const filenameParagraph = document.createElement("p");
+    		  filenameParagraph.append(document.createTextNode(row.filename));
+              sqlWrapper.append(filenameParagraph);
+
+              const descriptionParagraph = document.createElement("p");
+              descriptionParagraph.append(document.createTextNode(row.description));
+              sqlWrapper.append(descriptionParagraph);
+              sqlWrapper.append(document.createElement("br"));
+
+			  document.body.style.backgroundImage = "url('images_tracks/" + row.image + "')"; 
+
               const artistLink = document.createElement("a"); 
 
               artistLink.setAttribute("href", row.artist_url);
@@ -65,14 +94,7 @@ async function  updateCurrentTrackData(){
               artistLink.appendChild(artist);
 
               artistLink.className = "buttonstyle";
-              sqlWrapper.appendChild(artistLink);
-
-              const extLinkImg = document.createElement('img');
-              extLinkImg.src = "images/external_link.svg"
-              extLinkImg.className = "external_link";
-
-              sqlWrapper.appendChild(extLinkImg);
-    		  
+              sqlWrapper.appendChild(artistLink);    		  
     		}.bind({counter: 0})
     	}
     );
@@ -101,6 +123,7 @@ function logger(...args){
         db.checkRc(rc);
 
         startListening();
+        registerKeys();
       }
     );    
   };

@@ -6,42 +6,40 @@
 	<title>Pudsey Clough Radio</title>
 	<meta name="description" content="orllewin portal">
 	<meta name="author" content="orllewin">
-	<link rel="stylesheet" href="../style.css">
+	<link rel="stylesheet" href="style.css">
+	<link rel="manifest" href="manifest.json">
   </head>
   <body>
     <!-- header start -->
-  	<header>
-  		<p><img src="./images/trans_curlew.png" style="width: 80px;"></p>
+  	<header id="pcr_header" class="uiVisible">
   		<span id="header_title">pudsey clough radio</span><br>
-  		<p><small>a micro netradio station</small>
-  		<hr>
+  		<p><small>Field recordings, audio experiments</small></p>
   	</header>
   	<!-- header end -->
-  	<article>
-  	  <p><h2>About</h2></p>
-  	  <p>Field recordings, audio experiments, and some music from the <a href="../elmet_brae/">elmet brae</a> micro label.<br>
-  	  <p>
-        <a class="buttonstyle_big" href="#" onClick="MyWindow=window.open('./popup_player.html','Pudsey Clough Radio player','width=312,height=480'); return false;">open player</a> <a class="buttonstyle_big" href="https://orllewin.radioca.st/rad.ogg" target="_blank">open stream</a>
-  		<br><br>
-  		<small>If you have problems with the popup player click the 'open stream' button<br>or add <a href="https://orllewin.radioca.st/rad.ogg" target="_blank">orllewin.radioca.st/rad.ogg</a> to any netradio software (or maybe try am radio at 750kHz in the Pudsey Road area). As a last resort try: http://orllewin.uk:8000/rad.ogg - that avoids the proxy and streams directly from my house</small>
-  	  </p>
-      <div id="track_details">
-  	    <p><h2>Now playing</h2></p>
-  	    <div id="sql_wrapper"></div>
+  	<article id="pcr_article" class="uiVisible">
+  	  <a class="buttonstyle_big" href="#" onClick="MyWindow=window.open('./popup_player.html','Pudsey Clough Radio player','width=300,height=120'); return false;">open player</a> <a class="buttonstyle_big" href="https://orllewin.radioca.st/rad.ogg" target="_blank">open stream</a>
+   	  <br>
+   	  <br>
+  	  <h2>Now playing</h2>
+  	  <div id="sql_wrapper"></div>
   	  <br>
-  	  <p><h2>Contact</h2></p>
-	  <p>If you have field recordings, music, or any other audio that'd feel at home on Pudsey Clough Radio contact: orllewin@fastmail.uk</p>
-  	  <p><h2>Assets</h2></p>
-  	  <p><a href="./images/pcr_logo.png">Logo with station name</a> | <a href="./images/pcr_logo_curlew.png">Logo, curlew only</a></p>
+  	  <h2>Contact</h2>
+	  <p>If you have field recordings, music, or any other audio that'd feel at home on Pudsey Clough Radio contact:<br>orllewin@fastmail.uk</p>
+      <br>
+      <hr>
+      <br>
+	  <p>
+  		<small>If you have problems with the popup player click the 'open stream' button<br>or add <a href="https://orllewin.radioca.st/rad.ogg" target="_blank">orllewin.radioca.st/rad.ogg</a> to any netradio software<br>(or maybe try am radio at 750kHz in the Pudsey Road area)</small>
+  	  </p>
   	</article>
   	<!-- footer start -->
   	<div id="invis_rad_div" style="visibility: hidden"></div>
-  	<footer>
-  	  <small>© <a href="../">Orllewin</a> 2024. Made in Todmorden, Yorkshire. <a href="#" onclick="logEntireDatabase();">log tracks</a></small>
+  	<footer id="pcr_footer" class="uiVisible">
+  	  <p><small>© <a href="../">Orllewin</a> 2024. Made in Todmorden, Yorkshire. <a href="#" onclick="logEntireDatabase();">log tracks</a></small></p>
   	</footer>
   	<!-- footer end -->
     
-    <script src="jswasm/sqlite3.js"></script>
-    <script src="pcr_sql.js"></script>
+    <script src="jswasm/sqlite3.js" defer></script>
+    <script src="pcr_sql.js" defer></script>
   </body>
 </html>

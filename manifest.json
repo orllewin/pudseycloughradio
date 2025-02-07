@@ -1,0 +1,28 @@
+{
+  "theme_color": "#f5f5da",
+  "background_color": "#f8f2e6",
+  "icons": [
+    {
+      "purpose": "maskable",
+      "sizes": "512x512",
+      "src": "images/pwa_icon.png",
+      "type": "image/png"
+    },
+    {
+      "purpose": "any",
+      "sizes": "512x512",
+      "src": "images/pwa_icon.png",
+      "type": "image/png"
+    }
+  ],
+  "orientation": "any",
+  "display": "standalone",
+  "dir": "auto",
+  "lang": "en-GB",
+  "name": "Pudsey Clough Radio",
+  "short_name": "PCR",
+  "start_url": "https://orllewin.uk/pcr/",
+  "scope": "https://orllewin.uk/pcr/",
+  "description": "Field recordings, audio experiments",
+  "id": "pcrad_app"
+}
